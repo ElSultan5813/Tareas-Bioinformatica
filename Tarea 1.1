@@ -14,9 +14,18 @@ for i in A B C D;do mkdir Pob$i;  echo "Este es un individuo de la poblacion Pob
 ##script para bajar las secuencias el NCBI y analizar la secuencia TGCA
 #crear carpeta para el guardado de las secuencias
 mkdir E.coli
+
+#Descarga todas las secuencias juntas desde el ncbi
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=HQ833340.1,OL457181.1,PQ656130.1,FN297865.1,GQ925859.1" > E.coli/tolCluxSgyrBlacZlacY.fasta
+
+
 #descargar las secuencias desde el ncbi
-curl -s "https://www.ncbi.nlm.nih.gov/nuccore/NC_000913.3?report=fasta&from=3178115&to=3179596" > E.coli/tolC.fasta
-curl -s "https://www.ncbi.nlm.nih.gov/nuccore/NC_000913.3?report=fasta&from=2814218&to=2814733&strand=true" > E.coli/luxS.fasta
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=HQ833340.1" > E.coli/tolC.fasta
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=OL457181.1" > E.coli/luxS.fasta
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=PQ656130.1" > E.coli/gyrB.fasta
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=FN297865.1" > E.coli/lacZ
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=GQ925859.1" > E.coli/lacY
+
 
 
 
